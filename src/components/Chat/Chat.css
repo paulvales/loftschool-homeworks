@@ -3,7 +3,7 @@
   height: 450px;
   border: 1px solid #d8d8fd;
   border-radius: 4px;
-  box-shadow: 0 0 9px 1px rgba(0, 0, 0, .1);
+  box-shadow: 0 0 9px 1px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
 }
@@ -11,13 +11,16 @@
 .message-list {
   flex: 10 1;
   overflow-y: scroll;
+  position: relative;
 }
 
 .messages {
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-direction: column;
   flex-direction: column;
   min-height: 100%;
-  padding: 370px 10px 0;
+  padding: 10px 10px 0;
 }
 
 .input-message {
@@ -26,5 +29,45 @@
   border: 1px solid #eee;
   font-size: 16px;
   outline: none;
-  padding: 4px 10px;
+  padding: 0.5em 0.8em;
+  color: #575757;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0.2;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+.typingNow {
+  opacity: 1;
+  transition: opacity 400ms;
+  padding: 0em 1.5em;
+  position: absolute;
+  bottom: 0;
+}
+.hidden {
+  opacity: 0;
+  transition: opacity 400ms;
+}
+.typingNow span {
+  font-size: 3em;
+  animation-name: blink;
+  animation-duration: 1.4s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  color: #5b5bff;
+}
+
+.typingNow span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.typingNow span:nth-child(3) {
+  animation-delay: 0.4s;
 }

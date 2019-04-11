@@ -1,12 +1,15 @@
 .message {
   margin: 5px 0;
+  -ms-flex-item-align: left;
   align-self: left;
   background-color: #5b5bff;
   border-radius: 16px;
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
   padding: 5px 15px;
+  -ms-flex-item-align: baseline;
   align-self: baseline;
+  word-break: break-all;
 }
 
 .message__like {

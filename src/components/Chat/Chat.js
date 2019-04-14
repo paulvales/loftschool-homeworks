@@ -11,16 +11,9 @@ class Chat extends React.Component {
       typing: false,
       typingTimeout: 0
     };
-    this.changeInputMessage = this.changeInputMessage.bind(this);
-    this.sendMessageOnEnter = this.sendMessageOnEnter.bind(this);
-    this.eachMessage = this.eachMessage.bind(this);
-    this.changeInputMessage = this.changeInputMessage.bind(this);
   }
 
-  changeInputMessage(event) {
-    if (this.state.typingTimeout) {
-      clearTimeout(this.state.typingTimeout);
-    }
+  changeInputMessage = event => {
     this.setState({
       messageInput: event.target.value,
       typing: true
@@ -31,10 +24,13 @@ class Chat extends React.Component {
         typing: false
       });
     }, 800);
-  }
+  };
 
-  sendMessageOnEnter(event) {
+  sendMessageOnEnter = event => {
     if (event.key === 'Enter' && this.state.messageInput !== '') {
+      this.setState({
+        typing: false
+      });
       this.setState(({ messages }) => {
         const newMessages = [...messages, { text: this.state.messageInput }];
         return {
@@ -43,9 +39,9 @@ class Chat extends React.Component {
         };
       });
     }
-  }
+  };
 
-  eachMessage = msg => <Message key={msg.text} text={msg.text} />;
+  eachMessage = (msg, index) => <Message key={index} text={msg.text} />;
 
   render() {
     return (

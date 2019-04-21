@@ -1,11 +1,17 @@
 .app-container {
+  -ms-flex-align: center;
   align-items: center;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-direction: column;
   flex-direction: column;
   height: 100%;
+  -ms-flex-pack: center;
   justify-content: center;
-  background: radial-gradient(circle, #36383F, #202125);
-  color: rgb(181, 181, 181);
+  background: -webkit-radial-gradient(circle, #36383f, #202125);
+  background: -o-radial-gradient(circle, #36383f, #202125);
+  background: radial-gradient(circle, #36383f, #202125);
+  color: #b5b5b5;
 }
 
 .form__buttons {
@@ -34,7 +40,6 @@
   padding: 3px 10px;
   font-size: 16px;
 }
-
 
 .field__error {
   display: block;
